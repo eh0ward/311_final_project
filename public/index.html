@@ -1,114 +1,166 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<style>
-body {
-  margin-top: 100px;
-  margin-bottom: 100px;
-  margin-right: 150px;
-  margin-left: 80px;
-}
-</style>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-right: 150px;
+        margin-left: 80px;
+      }
+    </style>
     <title>ACA CRM</title>
   </head>
   <body>
-        <ul class="nav" >
-            <li class="nav-item" onclick="changePage('add-customer')">
-                <a class="nav-link active" href="#">Add Customer</a>
-            </li>
-            <li class="nav-item" onclick="changePage('search-customer');getCustomers()">
-                <a class="nav-link" href="#">Search Customers</a>
-            </li>
-   
-        </ul>
-    <div id="search-customer" class="page" style="display:none">
-            <form class="form-inline my-2 my-lg-0">
-              <input id="search-customer-input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button onclick="searchCustomer()" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
-            </form>
+    <ul class="nav">
+      <li class="nav-item" onclick="changePage('add-customer')">
+        <a class="nav-link active" href="#">Add Customer</a>
+      </li>
+      <li
+        class="nav-item"
+        onclick="changePage('search-customer');getCustomers()"
+      >
+        <a class="nav-link" href="#">Search Customers</a>
+      </li>
+    </ul>
+    <div id="search-customer" class="page" style="display: none;">
+      <form class="form-inline my-2 my-lg-0">
+        <input
+          id="search-customer-input"
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button
+          onclick="searchCustomer()"
+          class="btn btn-outline-success my-2 my-sm-0"
+          type="button"
+        >
+          Search
+        </button>
+      </form>
 
-            <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody id="search-customer-tbody">
-                      
-                     
-
-                    </tbody>
-                  </table>
-                  
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="search-customer-tbody"></tbody>
+      </table>
     </div>
     <div id="add-customer" class="page">
-        <form>
-            <div class="form-group">
-                <label for="email-address">Email address</label>
-                <input type="email" class="form-control" id="email-address" placeholder="Enter email">
-               
-            </div>
-            <div class="form-group">
-                    <label for="last-name">Last name</label>
-                    <input type="email" class="form-control" id="last-name" placeholder="Enter last name">
-                  
-            </div>
-            <div class="form-group">
-                    <label for="first-name">First name</label>
-                    <input type="email" class="form-control" id="first-name"  placeholder="Enter first name">
-                  
-            </div>
-            <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="email" class="form-control" id="phone" placeholder="Enter phone">
-            </div>
+      <form>
+        <div class="form-group">
+          <label for="email-address">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email-address"
+            placeholder="Enter email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last name</label>
+          <input
+            type="email"
+            class="form-control"
+            id="last-name"
+            placeholder="Enter last name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="first-name">First name</label>
+          <input
+            type="email"
+            class="form-control"
+            id="first-name"
+            placeholder="Enter first name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            type="email"
+            class="form-control"
+            id="phone"
+            placeholder="Enter phone"
+          />
+        </div>
 
-
-
-
-            <button onclick="createCustomer()" type="button" class="btn btn-primary">Submit</button>
-        </form>
+        <button
+          onclick="createCustomer()"
+          type="button"
+          class="btn btn-primary"
+        >
+          Submit
+        </button>
+      </form>
     </div>
-    <div id="customer-detail" class="page" style="width: 18rem;display: none"></div>
+    <div
+      id="customer-detail"
+      class="page"
+      style="width: 18rem; display: none;"
+    ></div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
 
     <script>
+      async function createCustomer() {
+        let getE = document.getElementById.bind(document);
+        let emailAddress = getE("email-address").value;
+        let firstName = getE("first-name").value;
+        let lastName = getE("last-name").value;
+        let phone = getE("phone").value;
 
-    async function createCustomer(){
-      let getE = document.getElementById.bind(document)
-      let emailAddress = getE("email-address").value;
-      let firstName = getE("first-name").value;
-      let lastName = getE("last-name").value;
-      let phone = getE("phone").value;
+        const response = await fetch("/api/customers", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ emailAddress, firstName, lastName, phone }),
+        });
+        const data = await response.json();
+        alert("Customer created");
+      }
 
-      const response = await fetch('/api/customers', {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ emailAddress, firstName, lastName,phone})
-      });
-      const data = await response.json(); 
-      alert('Customer created');
-    }
-
-    function viewCustomer(id){
-        changePage("customer-detail")
+      function viewCustomer(id) {
+        changePage("customer-detail");
         let customerHtml = `<div class="card-body">
               <h5 class="card-title">Card title</h5>
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -117,36 +169,35 @@ body {
                 </p>
             </div>`;
         document.getElementById("customer-detail").innerHTML = customerHtml;
-    }
-    async function getCustomers(){
-        let searchCustomerValue = document.getElementById("search-customer-input").value;
-        const response = await fetch('/api/customers');
-        const data = await response.json(); 
+      }
+      async function getCustomers() {
+        let searchCustomerValue = document.getElementById(
+          "search-customer-input"
+        ).value;
+        const response = await fetch("/api/customers");
+        const data = await response.json();
         let tbody = "";
-       for(let i =0; i < data.length; i ++){
-           const customer = data[i];
-           const {id, firstName, lastName, emailAddress, phone} = customer;
-        tbody  += `<tr>
+        for (let i = 0; i < data.length; i++) {
+          const customer = data[i];
+          const { id, first_name, last_name, email_address, phone } = customer;
+          tbody += `<tr>
                             <th scope="row">${id}</th>
                             <td>${firstName}</td>
                             <td>${lastName}</td>
                             <td>${emailAddress}</td>
                             <td>${phone}</td>
                             <td><a href="#" onclick="viewCustomer(${id})">View</a></td>
-                        </tr>`
-           
-       }
-       document.getElementById("search-customer-tbody").innerHTML = tbody;
-    }
+                        </tr>`;
+        }
+        document.getElementById("search-customer-tbody").innerHTML = tbody;
+      }
 
-
-    function changePage(id){
-        Array.from(document.querySelectorAll('.page')).map(e=>e.style.display='none');
-        document.querySelector(`#${id}`).style.display='block'
-
-    }
-
-
+      function changePage(id) {
+        Array.from(document.querySelectorAll(".page")).map(
+          (e) => (e.style.display = "none")
+        );
+        document.querySelector(`#${id}`).style.display = "block";
+      }
     </script>
   </body>
 </html>
